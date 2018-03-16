@@ -1,0 +1,84 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+@font-face {
+    font-family: Bebas;
+    src: url(../font/BebasNeue-Book.ttf);
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Average Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Average Sans Regular'), local('AverageSans-Regular'), url(http://fonts.gstatic.com/s/averagesans/v6/1Ptpg8fLXP2dlAXR-HlJJNJ_DNCb71ka4ZiO.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+    font-family: 'Average Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Average Sans Regular'), local('AverageSans-Regular'), url(http://fonts.gstatic.com/s/averagesans/v6/1Ptpg8fLXP2dlAXR-HlJJNJ_AtCb71ka4Q.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+
+body {
+    -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color: #ffffff;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+}
+
+body, input {
+    font-family: 'Average Sans', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bebas', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+}
+
+body * :not(script){
+    display: block;
+    font-size: 20px;
+}
+
+img {
+    display: initial;
+}
+
+button {
+    color: #ffffff;
+    background-color: #990019;
+    border: none;
+    border-radius: 4px;
+    padding: 15px 30px;
+    margin: 0 0 0 auto;
+}
