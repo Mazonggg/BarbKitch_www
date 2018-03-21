@@ -50,6 +50,7 @@ function createLoginLoader() {
 
     loginButton = document.createElement('button');
     loginButton.id = 'loginButton';
+    loginButton.className += " buttonlook";
     loginButton.innerHTML = 'Log in';
     loginButton.addEventListener('click', function () {
         login(nameInput.value, pwdInput.value);

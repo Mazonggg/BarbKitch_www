@@ -4,6 +4,8 @@ document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="modules
 
 var scanLoader;
 var scanContainer;
+var scanOperation = 'checkin';
+var scanButton;
 
 window.addEventListener('load', function () {
     scanLoader = document.getElementById('scan_qrLoader');
@@ -17,10 +19,12 @@ function createScan_qrLoader() {
     cordova.src = 'cordova.js';
     scanLoader.parentNode.insertBefore(cordova, scanLoader.nextSibling);
 
-    var scanButton = document.createElement('button');
+    scanButton = document.createElement('button');
     scanButton.id = 'scanButton';
-    scanButton.innerHTML = 'Check in';
+
+    checkCheckinStatus(getUsername());
     scanButton.addEventListener('click', scan);
+    scanButton.className += " buttonlook";
 
     scanContainer = document.createElement('div');
     scanContainer.id = 'scanContainer';
@@ -53,14 +57,30 @@ function verifyCode(string) {
     xmlhttp.onload = function () {
         processCheckin(this.response);
     };
-    xmlhttp.send('code=' + string + '&usr=' + getUsername() + "&op=checkin");
+    xmlhttp.send('code=' + string + '&usr=' + getUsername() + "&op=" + scanOperation);
+}
+
+function checkCheckinStatus(userName) {
+
+    var xmlhttp = new XMLHttpRequest();
+    var ajax = 'http://h2678361.stratoserver.net/BarbaellKitchen/servering/check_checkin.php';
+    xmlhttp.open('POST', ajax, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.onload = function () {
+        processCheckin(this.response);
+    };
+    xmlhttp.send('&usr=' + getUsername());
 }
 
 function processCheckin(response) {
 
-    var p = document.createElement('p');
-    p.innerHTML = "qr_checkin: " + response;
-    scanContainer.appendChild(p);
+    if (response == '4') {
+        scanButton.innerHTML = 'Check out';
+        scanOperation = 'checkout';
+    } else {
+        scanButton.innerHTML = 'Check in';
+        scanOperation = 'checkin';
+    }
 }
 
 function getUsername() {

@@ -17,6 +17,7 @@ function createLogoutLoader() {
 
     logoutButton = document.createElement('button');
     logoutButton.id = 'logoutButton';
+    logoutButton.className += " buttonlook";
     logoutButton.innerHTML = 'Log out';
     logoutButton.addEventListener('click', function () {
         logout();
